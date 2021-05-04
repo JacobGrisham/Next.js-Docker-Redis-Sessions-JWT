@@ -12,6 +12,9 @@ COPY ./ ./
 # Note that you can RUN as many operations as you'd like, but you can only run one CMD
 RUN npm install
 
+# expose command so that other developers know this service runs on port below
+EXPOSE 3000
+
 # The CMD runs an array of commands
 # "/bin/bash" tells Docker that you want to access the shell of the container
 CMD ["/bin/bash"]
