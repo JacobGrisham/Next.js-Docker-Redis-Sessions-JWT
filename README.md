@@ -59,8 +59,8 @@ I wrote the code in docker-compose.yml and Dockerfile. The other files were prov
 4. In your terminal, navigate to the root folder of Back_End run `docker-compose up` (you will have to run `docker-compose up --build` for the first setup phase)
 5. In your terminal, navigate to the root folder of Front_End and install node_modules with `npm install`, then run `npm start` to run the client. React should prompt you to start this server on http://localhost:3001/.
 
-**⚠️ Important:** if you are getting conflict errors, you should run `docker stop <container name>` that is already running in the background.
-**⚠️ Important:** if you are getting other errors, you should run `docker-compose down` to bring everything down, and start over.
+**⚠️ Important:** if you are getting conflict errors, you should run `docker stop <container name>` that is already running in the background.  
+**⚠️ Important:** if you are getting other errors, you should run `docker-compose down` to bring everything down, and start over.  
 
 ### To contribute to this project on your system:
 - In your terminal, navigate to the root folder of this repository and run `npm install`
