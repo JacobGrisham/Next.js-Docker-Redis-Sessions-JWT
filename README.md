@@ -43,6 +43,7 @@ I wrote the code in docker-compose.yml and Dockerfile. The other files were prov
 - ### Monolithic vs Microservices Architectures
   - In a monolithic architecture, everything (the database, the back-end API, the front-end client, etc.) is housed on a single server.
   - In a microservices architecture, services are split among servers, often in such a way that there is one service per server.
+
 - ### Why use Docker, and What Came Before It?:
   - Docker is solution that ensures that developers all work in the same environment such that the version number of libraries, dependencies, operating systems, etc. are all the same. This decreases the time spent on on-boarding new team members and debugging merged code conflicts due to different development environments.
   - Before Docker, there were virtualized machines, such as VMware or VirtualBox. Virtual Machines were like having multiple computers (with thier own operating system, kernel, virtual hardware, and software) nested within a master computer. All of these nested computers caused slower runtimes in development and production.
@@ -51,13 +52,17 @@ I wrote the code in docker-compose.yml and Dockerfile. The other files were prov
     - Image: is a file with instructions for the container to run certain operations, such as "install Node.js, install dependencies, and then run this application". [DockerHub](https://hub.docker.com/search?q=&type=image) is a good resource for boilerplate Docker Images
   - Docker is also a solution that allows time-efficient horizontal scalability of services on production servers since Docker Images can be replicated quickly.
 
+- ### Redis
+  - Is a popular NoSQL database for key:values. Other popular NoSQL databases include cassandra for wide column, neo4j for graph, and mongoDB for document.
+  - It is an in-memory database for that is ideal for small, short-lived, non-critical data. Having the database in memory makes queries very fast, but also means that data loss is more likely
+
 ## 🚀 Getting Started
 ### To run this project on your system:
 1. You must add your own API key in the `controllers/image.js` file to connect to Clarifai API. You can grab a Clarifai API key [here](https://www.clarifai.com/)
 2. Make sure you have [Docker](https://docs.docker.com/get-docker/) installed and running on your computer
 3. Make sure you have [PostgreSQL](https://www.postgresql.org/download/) installed and running on your computer. If you installed PostgreSQL with [Homebrew](https://brew.sh/), then you can start PostgreSQL with `brew services start postgresql`
-4. In your terminal, navigate to the root folder of Back_End run `docker-compose up` (you will have to run `docker-compose up --build` for the first setup phase)
-5. In your terminal, navigate to the root folder of Front_End and install node_modules with `npm install`, then run `npm start` to run the client. React should prompt you to start this server on http://localhost:3001/.
+4. In your terminal, navigate to the root of this repository and run `docker-compose up` (you will have to run `docker-compose up --build` for the first setup phase)
+5. Copy and paste this address http://localhost:3001/ or [click here](http://localhost:3001/) to view the application
 
 **⚠️ Important:** if you are getting conflict errors, you should run `docker stop <container name>` that is already running in the background.  
 **⚠️ Important:** if you are getting other errors, you should run `docker-compose down` to bring everything down, and start over.  
