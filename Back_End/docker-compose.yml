@@ -2,29 +2,40 @@ version: '3.8'
 
 services:
   # Back-end API
-  smart-brain-api:
-    container_name: backend
+  back-end-api:
+    # Since we have a Dockerfile, we don't need to specify the line below. It is commented out
     # image: node: 12.18.3
+    container_name: face-recognition-backend
+    # build allows us to build from our own Dockerfile instead of a default Image like node:8.11.1
+    # build references the Dockerfile in the root directory
     build: ./
     command: npm start
-    working_dir: /usr/src/smart-brain-api
+    working_dir: /usr/src/Back_End
+    # These environmental variables are referenced by the connection in server.js through a process.env
     environment:
       POSTGRES_USER: jake
       POSTGRES_PASSWORD: secret
-      POSTGRES_DB: smart-brain-docker
+      POSTGRES_DB: face-recognition-database-docker
       POSTGRES_HOST: postgres
+    # 3000 represents the port on your local machine, the : represents forwarding, and 3001 represents the port of the container
     ports:
-      - "3000:3000"
+      - "3000:3001"
+    # volumes allows access to the file system of the container
+    # ./ represents the directory of your local machine, the : represents forwarding, and /usr/src/Back_End represents the directory of the container
+    # This enables changes made on your local machine to populate in the container automatically
     volumes:
-      - ./:/usr/src/smart-brain-api
+      - ./:/usr/src/Back_End
 
-  # Postgres
+  # PostgreSQL
   postgres:
+    # To connect the back-end-api service to our database, we need to include the environment below in both our database service and back-end-api service
     environment:
       POSTGRES_USER: jake
       POSTGRES_PASSWORD: secret
-      POSTGRES_DB: smart-brain-docker
+      POSTGRES_DB: face-recognition-database-docker
       POSTGRES_HOST: postgres
+    # Telling Docker to run whatever is in the postgres directory on our local machine. In this case, we will get tables generated for our database in the Docker container
     build: ./postgres
+    # The 5431 represents the port on your local machine, the : represents forwarding, and the 5432 represents the port of the container
     ports:
-      - "5432:5432"
+      - "5431:5432"
