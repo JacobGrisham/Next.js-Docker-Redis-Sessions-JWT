@@ -58,7 +58,9 @@ I wrote the code in docker-compose.yml and Dockerfile. The other files were prov
 
 ## 🚀 Getting Started
 ### To run this project on your system:
-1. You must add your own API key in the `controllers/image.js` file to connect to Clarifai API. You can grab a Clarifai API key [here](https://www.clarifai.com/)
+1. You must add your own API key to connect to Clarifai API. You can grab a Clarifai API key [here](https://www.clarifai.com/)
+  - Option A (recommended). Create a .env file in Back_End and add your API key after `CLARIFAI_KEY=`
+  - Option B. Add your API key as a string by replacing `process.env.CLARIFAI_KEY` in line 5 of `Back_End/controllers/image.js`
 2. Make sure you have [Docker](https://docs.docker.com/get-docker/) installed and running on your computer
 3. Make sure you have [PostgreSQL](https://www.postgresql.org/download/) installed and running on your computer. If you installed PostgreSQL with [Homebrew](https://brew.sh/), then you can start PostgreSQL with `brew services start postgresql`
 4. In your terminal, navigate to the root of this repository and run `docker-compose up` (you will have to run `docker-compose up --build` for the first setup phase)
