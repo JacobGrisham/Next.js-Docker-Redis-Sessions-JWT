@@ -1,10 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
-const helmet = require('helmet');
+// const helmet = require('helmet');
 const cors = require('cors');
 const knex = require('knex');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
@@ -23,7 +23,7 @@ const db = knex({
 const app = express();
 
 // Enable logging
-app.use(morgan('combined'));
+// app.use(morgan('combined'));
 app.use(bodyParser.json());
 
 // Enable pre-flight across-the-board
@@ -38,11 +38,11 @@ var corsOptions = {
 }
 
 // Sets Referrer-Policy
-app.use(
-  helmet.referrerPolicy({
-    policy: "unsafe-url"
-  })
-);
+// app.use(
+//   helmet.referrerPolicy({
+//     policy: "unsafe-url"
+//   })
+// );
 
 // CRUD API Routes
 app.get('/', cors(corsOptions), (req, res)=> { res.send(db.users) });
