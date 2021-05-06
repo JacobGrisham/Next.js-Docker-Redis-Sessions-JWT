@@ -47,7 +47,7 @@ services:
     container_name: face-recognition-frontend
     build:
       context: ./Front_End
-    command: npm start
+    command: npm run dev
     ports:
       - "3001:3001"
     stdin_open: true
