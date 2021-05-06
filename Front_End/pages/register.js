@@ -1,4 +1,6 @@
 import React from 'react';
+import Navigation from '../components/Navigation/Navigation'
+import 'tachyons';
 
 class Register extends React.Component {
   constructor(props) {
@@ -22,6 +24,16 @@ class Register extends React.Component {
     this.setState({password: event.target.value})
   }
 
+  loadUser = (data) => {
+    this.setState({user: {
+      id: data.id,
+      name: data.name,
+      email: data.email,
+      entries: data.entries,
+      joined: data.joined
+    }})
+  }
+
   onSubmitSignIn = () => {
     fetch('http://localhost:3000/register', {
       method: 'post',
@@ -35,8 +47,8 @@ class Register extends React.Component {
       .then(response => response.json())
       .then(user => {
         if (user.id) {
-          this.props.loadUser(user)
-          this.props.onRouteChange('home');
+          loadUser(user)
+          router.push('/app')
         }
       })
       .catch((error) => {console.log(`Ooooops! ${error}`)});
@@ -44,6 +56,8 @@ class Register extends React.Component {
 
   render() {
     return (
+      <>
+      <Navigation></Navigation>
       <article className="br3 ba b--white-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center" style={{backgroundColor: '#4667D1'}}>
         <main className="pa4 white-80">
           <div className="measure">
@@ -91,6 +105,7 @@ class Register extends React.Component {
           </div>
         </main>
       </article>
+      </>
     );
   }
 }

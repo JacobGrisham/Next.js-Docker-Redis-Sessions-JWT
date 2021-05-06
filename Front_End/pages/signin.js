@@ -1,4 +1,8 @@
+import Link from 'next/link';
+import { Router, withRouter } from 'next/router'
 import React from 'react';
+import Navigation from '../components/Navigation/Navigation'
+import 'tachyons';
 
 class Signin extends React.Component {
   constructor(props) {
@@ -17,6 +21,16 @@ class Signin extends React.Component {
     this.setState({signInPassword: event.target.value})
   }
 
+  loadUser = (data) => {
+    this.setState({user: {
+      id: data.id,
+      name: data.name,
+      email: data.email,
+      entries: data.entries,
+      joined: data.joined
+    }})
+  }
+
   onSubmitSignIn = () => {
     fetch('http://localhost:3000/signin', {
       method: 'post',
@@ -29,15 +43,17 @@ class Signin extends React.Component {
       .then(response => response.json())
       .then(user => {
         if (user.id) {
-          this.props.loadUser(user)
-          this.props.onRouteChange('home');
+          loadUser(user)
+          router.push('/app')
         }
       })
+      .catch((error) => {console.log(`Ooooops! ${error}`)});
   }
 
   render() {
-    const { onRouteChange } = this.props;
     return (
+      <>
+      <Navigation></Navigation>
       <article className="br3 ba b--white-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center" style={{backgroundColor: '#4667D1'}}>
         <main className="pa4 white-80">
           <div className="measure">
@@ -73,13 +89,16 @@ class Signin extends React.Component {
               />
             </div>
             <div className="lh-copy mt3">
-              <p  onClick={() => onRouteChange('register')} className="f6 link dim white db pointer">Register</p>
+              <Link href='/register'>
+                <p className="f6 link dim white db pointer">Register</p>
+              </Link>
             </div>
           </div>
         </main>
       </article>
+      </>
     );
   }
 }
 
-export default Signin;
+export default withRouter(Signin);

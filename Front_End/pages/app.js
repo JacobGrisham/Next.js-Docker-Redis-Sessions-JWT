@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import FaceRecognition from './components/FaceRecognition/FaceRecognition';
-import Navigation from './components/Navigation/Navigation';
-import Signin from './components/Signin/Signin';
-import Register from './components/Register/Register';
-import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
-import Rank from './components/Rank/Rank';
-import './App.css';
+import FaceRecognition from '../components/FaceRecognition/FaceRecognition';
+import Navigation from '../components/Navigation/Navigation';
+import ImageLinkForm from '../components/ImageLinkForm/ImageLinkForm';
+import Rank from '../components/Rank/Rank';
+import 'tachyons';
 
 const initialState = {
   input: '',
@@ -95,35 +93,31 @@ class App extends Component {
   onRouteChange = (route) => {
     if (route === 'signout') {
       this.setState(initialState)
-    } else if (route === 'home') {
+    } else {
       this.setState({isSignedIn: true})
     }
-    this.setState({route: route});
   }
 
   render() {
-    const { isSignedIn, imageUrl, route, boxes } = this.state;
+    const { isSignedIn, imageUrl, boxes } = this.state;
     return (
       <div className="App">
-        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
-        { route === 'home'
-          ? <div>
-              <Rank
-                name={this.state.user.name}
-                entries={this.state.user.entries}
-              />
-              <ImageLinkForm
-                onInputChange={this.onInputChange}
-                onButtonSubmit={this.onButtonSubmit}
-              />
-              <FaceRecognition boxes={boxes} imageUrl={imageUrl} />
-            </div>
-          : (
-             route === 'signin'
-             ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
-             : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
-            )
-        }
+        <Navigation
+          isSignedIn={isSignedIn}
+          onRouteChange={this.onRouteChange}
+        />
+        <Rank
+          name={this.state.user.name}
+          entries={this.state.user.entries}
+        />
+        <ImageLinkForm
+          onInputChange={this.onInputChange}
+          onButtonSubmit={this.onButtonSubmit}
+        />
+        <FaceRecognition
+          boxes={boxes}
+          imageUrl={imageUrl}
+        />
       </div>
     );
   }
