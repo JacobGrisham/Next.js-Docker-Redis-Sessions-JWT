@@ -27,6 +27,7 @@ services:
     # This enables changes made on your local machine to populate in the container automatically
     volumes:
       - ./Back_End:/usr/src/Back_End
+      # - /usr/src/Back_End/node_modules
 
   # PostgreSQL Database
   postgres:
@@ -44,12 +45,17 @@ services:
 
   # Front-end React User Interface
   react-ui:
+    env_file:
+    - ./Front_End/.env
     container_name: face-recognition-frontend
-    build:
-      context: ./Front_End
+    build: ./Front_End
     command: npm start
+    working_dir: /usr/src/Front_End
     ports:
       - "3001:3001"
     stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
     volumes:
         - ./Front_End:/usr/src/Front_End
+        # - /usr/src/Front_End/node_modules

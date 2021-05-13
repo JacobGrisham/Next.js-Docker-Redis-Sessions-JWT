@@ -8,7 +8,9 @@ This application takes images as input and detects multiple faces using a machin
 - I refactored the application from create-react-app to Next.js. I went beyond the instrcutor's project scope by deciding to migrate this application to Next.js.
 
 ## 💡 Lessons Learned
-- Code Analysis: working with legacy codebases
+- Conventional Commits: standardized messages for git commits
+- Code Analysis: working with legacy codebases and refactoring
+- Refactoring and migrating create-react-app to Next.js
 - Client Side Rendering (CSR) vs Server Side Rendering (SSR)
 - Next.js `Link` component for client-side rendering
 - Next.js shared components for reducing duplication of code among pages
@@ -20,7 +22,7 @@ This application takes images as input and detects multiple faces using a machin
 - Redis data types: key:value pairs, hashes, linked lists, sets, and sorted-sets 
 - Cookies vs. Tokens
 - Token-based authentication and session with JSON Web Tokens (JWT) using the [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) library and Redis
-- Conventional Commits: standardized messages for git commits
+- [Reactstrap](https://github.com/reactstrap/reactstrap) for styling
 
 ## 🤔 Senior Software Engineer Considerations
 - ### Client Side Rendering (CSR) vs Server Side Rendering (SSR)
