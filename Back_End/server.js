@@ -46,7 +46,7 @@ var corsOptions = {
 
 // CRUD API Routes
 app.get('/', cors(corsOptions), (req, res)=> { res.send(db.users) });
-app.post('/signin', cors(corsOptions), signin.handleSignin(db, bcrypt));
+app.post('/signin', cors(corsOptions), signin.authentication(db, bcrypt));
 app.post('/register', cors(corsOptions), (req, res) => { register.handleRegister(req, res, db, bcrypt) });
 app.get('/profile/:id', cors(corsOptions), (req, res) => { profile.handleProfileGet(req, res, db)});
 app.put('/image', cors(corsOptions), (req, res) => { image.handleImage(req, res, db)});
