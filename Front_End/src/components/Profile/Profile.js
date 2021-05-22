@@ -39,6 +39,7 @@ class Profile extends Component {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ formInput: data })
     }).then(res => {
+        // eslint-disable-next-line
         this.props.toggleModal(),
         this.props.loadUser({ ...this.props.user, ...data })
     }).catch(err => {console.log(err)})
