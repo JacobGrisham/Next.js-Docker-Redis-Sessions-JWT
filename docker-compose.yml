@@ -19,6 +19,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: face-recognition-database-docker
       POSTGRES_HOST: postgres
+      REDIS_URL: redis://redis-cache
     # The first 3000 represents the port on your local machine, the : represents forwarding, and second 3000 represents the port of the container
     ports:
       - "3000:3000"
@@ -28,6 +29,14 @@ services:
     volumes:
       - ./Back_End:/usr/src/Back_End
       # - /usr/src/Back_End/node_modules
+
+  # Redis Database
+  redis:
+    image: redis
+    container_name: redis-cache
+    command: redis-server
+    ports:
+      - "6379:6379"
 
   # PostgreSQL Database
   postgres:
