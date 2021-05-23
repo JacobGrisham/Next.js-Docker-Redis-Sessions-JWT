@@ -88,8 +88,9 @@ This application takes images as input and detects multiple faces using a machin
   - Option B. Add your API key as a string by replacing `process.env.CLARIFAI_KEY` in line 5 of `Back_End/controllers/image.js`
 2. Make sure you have [Docker](https://docs.docker.com/get-docker/) installed and running on your computer
 3. Make sure you have [PostgreSQL](https://www.postgresql.org/download/) installed and running on your computer. If you installed PostgreSQL with [Homebrew](https://brew.sh/), then you can start PostgreSQL with `brew services start postgresql`
-4. In your terminal, navigate to the root of this repository and run `docker-compose up` (you will have to run `docker-compose up --build` for the first setup phase)
-5. Copy and paste this address http://localhost:3001/ or [click here](http://localhost:3001/) to view the application
+4. Make sure you have [Redis](https://redis.io/download) installed and running on your computer
+5. In your terminal, navigate to the root of this repository and run `docker-compose up` (you will have to run `docker-compose up --build` for the first setup phase)
+6. Copy and paste this address http://localhost:3001/ or [click here](http://localhost:3001/) to view the application
 
 **⚠️ Important:** if you are getting conflict errors, you should run `docker stop <container name>` that is already running in the background.  
 **⚠️ Important:** if you are getting other errors, you should run `docker-compose down` to bring everything down, and start over.  
