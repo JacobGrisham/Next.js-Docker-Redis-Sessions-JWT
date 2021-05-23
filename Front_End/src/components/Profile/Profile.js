@@ -50,8 +50,8 @@ class Profile extends Component {
     const { email, name, password } = this.state
     return (
     <div className='profile-modal'>
-      <article className="br3 ba b--white-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center" style={{backgroundColor: '#4667D1'}}>
-        <Button close outline color="primary" onClick={this.props.toggleModal}></Button>
+      <article className="br3 ba b--white-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center" style={{backgroundColor: '#4667D1', flexDirection: 'column'}}>
+        <Button close onClick={this.props.toggleModal} className="f6 link dim ba ph3 pv2 mb2 dib" style={{ alignSelf: 'flex-end' }}/>
         <main className="pa4 white-80 w-80">
           <img
           src="https://www.jacobgrisham.com/img/Tech%20Account%20Profile%20Photo%20medium.jpg"
