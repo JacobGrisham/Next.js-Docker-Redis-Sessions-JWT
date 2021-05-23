@@ -7,6 +7,8 @@ This application takes images as input and detects multiple faces using a machin
 - I wrote the code in docker-compose.yml and each Dockerfile. I went beyond the instrcutor's project scope by incorporating the front end into the development Docker container.
 - I refactored the application from create-react-app to Next.js. I went beyond the instrcutor's project scope by deciding to migrate this application to Next.js.
 
+![Demo](img/demo.gif)
+
 ## 💡 Lessons Learned
 - Conventional Commits: standardized messages for git commits
 - Code Analysis: working with legacy codebases and refactoring
