@@ -28,48 +28,48 @@ This application takes images as input and detects multiple faces using a machin
 - [Reactstrap](https://github.com/reactstrap/reactstrap) for styling
 
 ## 🤔 Senior Software Engineer Considerations
-- ### Client Side Rendering (CSR) vs Server Side Rendering (SSR)
-  - #### CSR
-    - Files are sent from the server to the client without any rendering (like downloading and executing javascript)
-    - Once files are processed, some subsequent requests don't need to make another request to the server because it's already downloaded
-  - #### SSR
-    - A fully-rendered page is sent from the server to the client. Javascript is downloaded and executed in the background
-  - #### Benefits of CSR:
-    - Easing load on the servers results in faster responses from the server
-    - Snappier user experience once the website is loaded
-    - Native-like application since there are no full page reloads
-    - (Possible drawback as well) Depending on the user's device and internet connection, can be faster than the server
-    - Great for large applications since the server's CPU doesn't hold up the event loop
-  - #### Benefits of SSR:
-    - Faster initial loading
-    - Optimizing search engine optimization (SEO)
-    - Great for static sites with text
-  - #### SSR React Libraries
-    - Next.js: optimal for dynamic applications. The 'work' happens on the server
-    - Gatsby.js: optimal for static text-based websites. The 'work' happens on the developer's machine
+### Client Side Rendering (CSR) vs Server Side Rendering (SSR)
+- #### CSR
+  - Files are sent from the server to the client without any rendering (like downloading and executing javascript)
+  - Once files are processed, some subsequent requests don't need to make another request to the server because it's already downloaded
+- #### SSR
+  - A fully-rendered page is sent from the server to the client. Javascript is downloaded and executed in the background
+- #### Benefits of CSR:
+  - Easing load on the servers results in faster responses from the server
+  - Snappier user experience once the website is loaded
+  - Native-like application since there are no full page reloads
+  - (Possible drawback as well) Depending on the user's device and internet connection, can be faster than the server
+  - Great for large applications since the server's CPU doesn't hold up the event loop
+- #### Benefits of SSR:
+  - Faster initial loading
+  - Optimizing search engine optimization (SEO)
+  - Great for static sites with text
+- #### SSR React Libraries
+  - Next.js: optimal for dynamic applications. The 'work' happens on the server
+  - Gatsby.js: optimal for static text-based websites. The 'work' happens on the developer's machine
   
-- ### Monolithic vs Microservices Architectures
-  - In a monolithic architecture, _everything_ (the database, the back-end API, the front-end client, etc.) is housed on a single server.
-  - In a microservices architecture, services are split among servers, often in such a way that there is one service per server.
+### Monolithic vs Microservices Architectures
+- In a monolithic architecture, _everything_ (the database, the back-end API, the front-end client, etc.) is housed on a single server.
+- In a microservices architecture, services are split among servers, often in such a way that there is one service per server.
 
-- ### Docker
-  - #### Why use Docker?:
-    - Docker is solution that ensures that developers all work in the same **development** environment such that the version number of libraries, dependencies, operating systems, etc. are all the same. This decreases the time spent on on-boarding new team members and debugging merged code conflicts due to different development environments.
-  - #### What Came Before Docker?
-    - Before Docker, there were virtualized machines, such as VMware or VirtualBox. Virtual Machines were like having multiple computers (with thier own operating system, kernel, virtual hardware, and software) nested within a master computer. All of these nested computers caused slower runtimes in development and production.
-  - #### What is Docker?:
-    - Docker utilizes the idea of containers. Containers are a light-weight option compared to virtual machines since they leverage the host operating system. Removing the redundancy of operating systems unlocks faster runtimes.
-      - **Containers**: use the host operating system to generate an isolated environment and to run services defined in an Image.
-      - **Image**: is a file with instructions for the container to run certain operations, such as "install Node.js, install dependencies, and then run this application". [DockerHub](https://hub.docker.com/search?q=&type=image) is a good resource for boilerplate Docker Images
-    - Docker is also a solution that allows time-efficient horizontal scalability of services on **production** servers since Docker Images can be replicated quickly.
+### Docker
+- #### Why use Docker?:
+  - Docker is solution that ensures that developers all work in the same **development** environment such that the version number of libraries, dependencies, operating systems, etc. are all the same. This decreases the time spent on on-boarding new team members and debugging merged code conflicts due to different development environments.
+- #### What Came Before Docker?
+  - Before Docker, there were virtualized machines, such as VMware or VirtualBox. Virtual Machines were like having multiple computers (with thier own operating system, kernel, virtual hardware, and software) nested within a master computer. All of these nested computers caused slower runtimes in development and production.
+- #### What is Docker?:
+  - Docker utilizes the idea of containers. Containers are a light-weight option compared to virtual machines since they leverage the host operating system. Removing the redundancy of operating systems unlocks faster runtimes.
+    - **Containers**: use the host operating system to generate an isolated environment and to run services defined in an Image.
+    - **Image**: is a file with instructions for the container to run certain operations, such as "install Node.js, install dependencies, and then run this application". [DockerHub](https://hub.docker.com/search?q=&type=image) is a good resource for boilerplate Docker Images
+  - Docker is also a solution that allows time-efficient horizontal scalability of services on **production** servers since Docker Images can be replicated quickly.
 
-- ### Redis
-  - Is a popular NoSQL database for key:values. Other popular NoSQL databases include cassandra for wide column, neo4j for graph, and mongoDB for document.
-  - It is an in-memory database for that is ideal for small, short-lived, non-critical data. Having the database in memory makes queries very fast, but also means that data loss is more likely.
-  - It is often used for caching small data
+### Redis
+- Is a popular NoSQL database for key:values. Other popular NoSQL databases include cassandra for wide column, neo4j for graph, and mongoDB for document.
+- It is an in-memory database for that is ideal for small, short-lived, non-critical data. Having the database in memory makes queries very fast, but also means that data loss is more likely.
+- It is often used for caching small data
 
-- ### Cookies vs Tokens
-  - Session management and authentication are expected in every application. Users shouldn't have to sign in again after refreshing the page and users shouldn't have access to other user's data.
+### Cookies vs Tokens
+- Session management and authentication are expected in every application. Users shouldn't have to sign in again after refreshing the page and users shouldn't have access to other user's data.
   - #### Cookies:
     - A cookie is simply a random string
     - The browser sends a POST request to the server with valid login data, a cookie is generated by the server and given to the browser through the Set-Cookie header along with the server response. When the browser sends another request to the server, it also sends along the cookie. The server validates that it generated this cookie (find and deserialize session) and then sends the response to the browser.
