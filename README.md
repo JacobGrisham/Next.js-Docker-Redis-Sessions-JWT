@@ -10,22 +10,25 @@ This application takes images as input and detects multiple faces using a machin
 ![Demo](img/demo.gif)
 
 ## 💡 Lessons Learned
-- Conventional Commits: standardized messages for git commits
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/): standardized messages for git commits
 - Code Analysis: working with legacy codebases and refactoring
-- Refactoring and migrating create-react-app to Next.js
+  - Refactoring and migrating [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) to [Next.js](https://nextjs.org/)
 - Client Side Rendering (CSR) vs Server Side Rendering (SSR)
-- Next.js `Link` component for client-side rendering
-- Next.js shared components for reducing duplication of code among pages
-- Next.js `getServerSideProps` for API calls
-- Dockerfile and `docker` CLI commands
-- docker-compose.yml and `docker-compose` CLI commands to orchestrate services during development
-- PostgreSQL in Docker: creating postgres directory with Dockerfile and `CREATE TABLE` commands in login.sql and users.sql to generate sql tables in Docker container
-- Redis CLI commands
-- Redis data types: key:value pairs, hashes, linked lists, sets, and sorted-sets 
+- [Next.js](https://nextjs.org/)
+  - Next.js `Link` component for client-side rendering
+  - Next.js shared components for reducing duplication of code among pages
+  - Next.js `getServerSideProps` for API calls
+- [Docker](https://www.docker.com/)
+  - Dockerfile and `docker` CLI commands
+  - docker-compose.yml and `docker-compose` CLI commands to orchestrate services during development
+  - [PostgreSQL](https://www.postgresql.org/) in Docker: creating postgres directory with Dockerfile and `CREATE TABLE` commands in login.sql and users.sql to generate sql tables in Docker container
+- [Redis](https://redis.io/)
+  - Redis CLI commands
+  - Redis data types: key:value pairs, hashes, linked lists, sets, and sorted-sets 
+  - Redis in Docker
 - Cookies vs. Tokens
-- Token-based authentication and session with JSON Web Tokens (JWT) using the [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) library and Redis
-- Redis in Docker
-- [Reactstrap](https://github.com/reactstrap/reactstrap) for styling
+  - Token-based authentication and session with JSON Web Tokens (JWT) using the [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) library and Redis
+- [Reactstrap](https://github.com/reactstrap/reactstrap) for styling with [Bootstrap](https://getbootstrap.com/)
 
 ## 🤔 Senior Software Engineer Considerations
 ### Client Side Rendering (CSR) vs Server Side Rendering (SSR)
