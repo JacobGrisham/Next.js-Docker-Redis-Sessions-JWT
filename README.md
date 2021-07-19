@@ -1,6 +1,7 @@
 <div align="center">
   
   # Face Recognition A.I.: React, Code Analysis, Docker, PostgreSQL, Redis, Cookies, and JWT
+  [![Codacy Badge](https://app.codacy.com/project/badge/Grade/513196f1d7434daaa5838f1a8eca579e)](https://www.codacy.com/gh/JacobGrisham/Next.js-Docker-Redis-Sessions-JWT/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JacobGrisham/Next.js-Docker-Redis-Sessions-JWT&amp;utm_campaign=Badge_Grade)
   [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
   [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 </div>
